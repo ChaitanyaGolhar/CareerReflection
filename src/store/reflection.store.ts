@@ -14,6 +14,7 @@ export interface ReflectionState {
   linkedin: string;
   college: string;
   graduationYear: string;
+  experienceYears: string;
   company: string;
   role: string;
 
@@ -70,6 +71,7 @@ export const useReflectionStore = create<ReflectionState>((set, get) => ({
   linkedin: saved.linkedin ?? "",
   college: saved.college ?? "",
   graduationYear: saved.graduationYear ?? "",
+  experienceYears: saved.experienceYears ?? "",
   company: saved.company ?? "",
   role: saved.role ?? "",
   answers: saved.answers ?? {},
@@ -145,7 +147,7 @@ export const useReflectionStore = create<ReflectionState>((set, get) => ({
     localStorage.removeItem(STORAGE_KEY);
     set({
       name: "", email: "", linkedin: "", college: "",
-      graduationYear: "", company: "", role: "",
+      graduationYear: "", experienceYears: "", company: "", role: "",
       answers: {}, wantsResearchUpdates: false, wantsConversation: false,
       wantsMentoring: false, anythingElse: "",
       startedAt: null, currentChapter: 1, currentQuestion: 0,

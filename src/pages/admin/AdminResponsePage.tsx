@@ -116,7 +116,7 @@ export default function AdminResponsePage() {
               {[
                 { icon: <Mail size={14} />, label: 'Email', value: c.email, href: `mailto:${c.email}` },
                 { icon: <GraduationCap size={14} />, label: 'College', value: `${c.college}, ${c.graduationYear}` },
-                { icon: <Building2 size={14} />, label: 'Company', value: c.company },
+                { icon: <Building2 size={14} />, label: 'Company', value: `${c.company} · ${c.experienceYears}y exp` },
                 { icon: <ExternalLink size={14} />, label: 'LinkedIn', value: c.linkedin ? 'View Profile' : '—', href: c.linkedin ?? undefined },
               ].map(({ icon, label, value, href }) => (
                 <div key={label} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>

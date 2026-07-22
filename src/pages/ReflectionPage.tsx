@@ -399,9 +399,21 @@ export default function ReflectionPage() {
 
     if (currentQ.type === 'number') {
       const n = parseInt(value)
-      if (isNaN(n) || n < 1980 || n > new Date().getFullYear()) {
-        setFieldErrors(prev => ({ ...prev, [currentQ.key]: 'Please enter a valid graduation year.' }))
-        return false
+      if (currentQ.key === 'graduationYear') {
+        if (isNaN(n) || n < 1980 || n > new Date().getFullYear()) {
+          setFieldErrors(prev => ({ ...prev, [currentQ.key]: 'Please enter a valid graduation year.' }))
+          return false
+        }
+      } else if (currentQ.key === 'experienceYears') {
+        if (isNaN(n) || n < 0 || n > 60) {
+          setFieldErrors(prev => ({ ...prev, [currentQ.key]: 'Please enter a valid number of years of experience.' }))
+          return false
+        }
+      } else {
+        if (isNaN(n)) {
+          setFieldErrors(prev => ({ ...prev, [currentQ.key]: 'Please enter a valid number.' }))
+          return false
+        }
       }
     }
 
@@ -452,6 +464,7 @@ export default function ReflectionPage() {
         linkedin: store.linkedin || undefined,
         college: store.college,
         graduationYear: parseInt(store.graduationYear),
+        experienceYears: parseInt(store.experienceYears),
         company: store.company,
         role: store.role,
         answers,

@@ -30,6 +30,7 @@ export interface SubmitReflectionPayload {
   linkedin?: string;
   college: string;
   graduationYear: number;
+  experienceYears: number;
   company: string;
   role: string;
   answers: { questionKey: string; answer: string }[];
@@ -100,6 +101,7 @@ export interface AdminReflection {
     linkedin: string | null;
     college: string;
     graduationYear: number;
+    experienceYears: number;
     company: string;
     role: string;
   };
